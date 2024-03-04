@@ -33,13 +33,19 @@ export default {
 </template>
 
 <style lang="scss">
-@use '../styles/general.scss' as *;
+@use '../styles/general' as *;
+@use '../styles/variables' as *;
+
 
 .container {
     ul {
         display: flex;
+        gap: $cardsGap;
+
         flex-flow: wrap;
         list-style: none;
+
+        text-align: center;
     }
 }
 
