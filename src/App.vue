@@ -13,28 +13,55 @@ export default {
 
   data() {
     return {
+      // flag di caricamento
+      loading: true,
       cards: [],
       store,
     }
   },
 
   created() {
-    axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=40&offset=0').then(res => {
+    axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=800&offset=1275').then(res => {
       this.store.cards = res.data.data;
-      // console.log(res)
+      // imposto il flag su false
+      this.loading = false; 
     })
   }
 }
 </script>
 
 <template>
-  <AppLogo></AppLogo>
-  <CardList></CardList>
+    <div v-if="loading" class="loader">
+      <div class="logo-loader">
+        <img id="logo" src="/img/logo.png" alt="logo yu-gi-oh">
+        <span id="text-loading">caricamento</span>
+      </div>
+    </div>
+
+    <AppLogo v-if="!loading"></AppLogo>
+    <CardList v-if="!loading"></CardList>
 </template>       
 
 <style lang="scss">
 @use './styles/general' as *;
 @use './styles/variables' as *;
+
+.logo-loader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+     #logo {
+        max-width: 300px;
+     }
+
+     #text-loading {
+      margin-top: 24px;
+     }
+
+}
 
 
 </style>
