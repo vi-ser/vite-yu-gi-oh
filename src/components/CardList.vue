@@ -24,7 +24,7 @@ export default {
 
         <ul>
             <CardItem
-            v-for="currentCard in store.card"
+            v-for="currentCard in store.cards"
             :card="currentCard"
             ></CardItem>
         </ul>
@@ -33,4 +33,14 @@ export default {
 </template>
 
 <style lang="scss">
+@use '../styles/general.scss' as *;
+
+.container {
+    ul {
+        display: flex;
+        flex-flow: wrap;
+        list-style: none;
+    }
+}
+
 </style>
