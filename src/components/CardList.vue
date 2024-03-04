@@ -22,6 +22,10 @@ export default {
 <template>
     <div class="container">
 
+        <div class="list-number">
+            <strong id="search-result">Carte mostrate: {{ store.cards.length }}</strong>
+        </div>
+
         <ul>
             <CardItem
             v-for="currentCard in store.cards"
@@ -38,6 +42,16 @@ export default {
 
 
 .container {
+
+    background-color: rgba(255, 255, 255, 0.05);
+
+    #search-result {
+        display: block;
+        padding: 24px;
+        background-color: rgba(255, 255, 255, 0.2);
+        margin-bottom:calc(2 * $cardsGap );
+    }
+
     ul {
         display: flex;
         gap: $cardsGap;
