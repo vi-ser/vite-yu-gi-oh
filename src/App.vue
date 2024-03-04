@@ -15,7 +15,6 @@ export default {
     return {
       // flag di caricamento
       loading: true,
-      cards: [],
       store,
     }
   },
