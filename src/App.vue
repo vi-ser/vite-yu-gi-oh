@@ -30,7 +30,7 @@ export default {
         console.log(res.data)
 
         this.store.cards = res.data.data;
-        // this.store.totalCards = res.data.meta.total_rows;
+        this.store.totalCards = res.data.data.length;
       });
 
      console.log("Ricerca percepita")
@@ -61,7 +61,7 @@ export default {
     </div>
 
     <AppLogo v-if="!loading"></AppLogo>
-    <CardSearch @search="searchArchetype()"></CardSearch>
+    <CardSearch v-if="!loading" @search="searchArchetype()"></CardSearch>
     <CardList v-if="!loading"></CardList>
 
 </template>       
