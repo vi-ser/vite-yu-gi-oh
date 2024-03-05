@@ -3,12 +3,14 @@ import axios from 'axios';
 import { store } from './store.js'
 import CardList from './components/CardList.vue'
 import AppLogo from './components/AppLogo.vue'
+import CardSearch from './components/CardSearch.vue';
 
 export default {
 
   components: {
    CardList,
    AppLogo,
+   CardSearch,
   },
 
   data() {
@@ -31,6 +33,8 @@ export default {
 </script>
 
 <template>
+
+
     <div v-if="loading" class="loader">
       <div class="logo-loader">
         <img id="logo" src="/img/logo.png" alt="logo yu-gi-oh">
@@ -40,6 +44,7 @@ export default {
 
     <AppLogo v-if="!loading"></AppLogo>
     <CardList v-if="!loading"></CardList>
+
 </template>       
 
 <style lang="scss">

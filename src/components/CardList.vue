@@ -1,7 +1,7 @@
 <script>
 
 import CardItem from './CardItem.vue';
-
+import CardSearch from './CardSearch.vue';
 import { store } from '../store.js';
 
 export default {
@@ -9,6 +9,7 @@ export default {
 
     components: {
         CardItem,
+        CardSearch,
     },
 
     data() {
@@ -21,6 +22,8 @@ export default {
 
 <template>
     <div class="container">
+
+        <CardSearch></CardSearch>
 
         <div class="list-number">
             <strong id="search-result">Carte totali: {{ store.totalCards }}</strong>
