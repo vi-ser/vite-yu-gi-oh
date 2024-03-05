@@ -15,7 +15,7 @@ export default {
     <div class="card-info">
 
         <span id="card-name"> {{card.name}} </span>
-        <small id="card-race"> {{card.race}} </small>
+        <small id="card-archetype"> {{card.archetype}} </small>
         
     </div>
 </li>

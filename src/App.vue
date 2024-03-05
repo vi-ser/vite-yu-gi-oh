@@ -43,6 +43,7 @@ export default {
     </div>
 
     <AppLogo v-if="!loading"></AppLogo>
+    <CardSearch></CardSearch>
     <CardList v-if="!loading"></CardList>
 
 </template>       
