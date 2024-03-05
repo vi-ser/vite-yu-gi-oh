@@ -23,7 +23,7 @@ export default {
     <div class="container">
 
         <div class="list-number">
-            <strong id="search-result">Carte mostrate: {{ store.cards.length }}</strong>
+            <strong id="search-result">Carte totali: {{ store.totalCards }}</strong>
         </div>
 
         <ul>
@@ -36,7 +36,7 @@ export default {
     </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @use '../styles/general' as *;
 @use '../styles/variables' as *;
 

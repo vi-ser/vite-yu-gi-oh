@@ -23,6 +23,7 @@ export default {
     axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=800&offset=1275').then(res => {
       this.store.cards = res.data.data;
       // imposto il flag su false
+      this.store.totalCards = res.data.meta.total_rows;
       this.loading = false; 
     })
   }
