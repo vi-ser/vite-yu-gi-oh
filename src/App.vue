@@ -21,11 +21,29 @@ export default {
     }
   },
 
+  methods: {
+
+  searchArchetype() {
+
+    axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype=' + this.store.selectItem)
+     .then(res => {
+        console.log(res.data)
+
+        this.store.cards = res.data.data;
+        // this.store.totalCards = res.data.meta.total_rows;
+      });
+
+     console.log("Ricerca percepita")
+  },
+
+},
+
   created() {
     axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=800&offset=1275').then(res => {
       this.store.cards = res.data.data;
-      // imposto il flag su false
+      // mostro le carte totali
       this.store.totalCards = res.data.meta.total_rows;
+      // imposto il flag su false
       this.loading = false; 
     })
   }
@@ -43,7 +61,7 @@ export default {
     </div>
 
     <AppLogo v-if="!loading"></AppLogo>
-    <CardSearch></CardSearch>
+    <CardSearch @search="searchArchetype()"></CardSearch>
     <CardList v-if="!loading"></CardList>
 
 </template>       

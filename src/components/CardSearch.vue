@@ -13,6 +13,14 @@ export default {
     }
   },
 
+  methods: {
+    selectArchetype(archetypeName) {
+      this.store.selectItem = archetypeName;
+      this.$emit('search', archetypeName);
+    },
+
+  },
+
   created() {
 
     axios.get('https://db.ygoprodeck.com/api/v7/archetypes.php')
@@ -21,12 +29,7 @@ export default {
         this.store.archetypeList = res.data;
       });
   },
-
 }
-
-
-
-
 </script>
 
 <template>
@@ -35,8 +38,8 @@ export default {
       <button class="btn btn-secondary dropdown-toggle rounded-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
         Seleziona Archetipo
       </button>
-      <ul class="dropdown-menu rounded-0">
-        <li v-for="archetype in store.archetypeList"><a class="dropdown-item" href="#">{{ archetype.archetype_name }}</a></li>
+      <ul class="dropdown-menu rounded-0 overflow-y-scroll">
+        <li @click="selectArchetype(archetype.archetype_name)" v-for="archetype in store.archetypeList"><a class="dropdown-item" href="#">{{ archetype.archetype_name }}</a></li>
       </ul>
     </div> 
   </div> 
