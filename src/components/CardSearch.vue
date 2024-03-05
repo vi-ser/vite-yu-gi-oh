@@ -36,7 +36,7 @@ export default {
   <div class="dropdown-container">
     <div class="dropdown">
       <button class="btn btn-secondary dropdown-toggle rounded-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Seleziona Archetipo
+        {{store.selectItem || 'Seleziona Archetipo'}}
       </button>
       <ul class="dropdown-menu rounded-0 overflow-y-scroll">
         <li @click="selectArchetype(archetype.archetype_name)" v-for="archetype in store.archetypeList"><a class="dropdown-item" href="#">{{ archetype.archetype_name }}</a></li>
